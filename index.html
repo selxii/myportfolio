@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Charice Van Icelle Maruji Amador | Web & Mobile Developer</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#ecfeff',
+              100: '#cffafe',
+              400: '#22d3ee',
+              500: '#06b6d4',
+              600: '#0891b2',
+            },
+            accent: {
+              500: '#6366f1',
+              600: '#4f46e5',
+            },
+            dark: {
+              bg: '#0a0f1d',
+              card: '#111827',
+              surface: '#1f2937',
+              border: '#374151'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Outfit', 'sans-serif'],
+            mono: ['Fira Code', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0a0f1d;
+    }
+    .light ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1f2937;
+      border-radius: 5px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #06b6d4;
+    }
+
+    /* Glassmorphism background effect */
+    .glass-card {
+      background: rgba(17, 24, 39, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .light .glass-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    /* Glow highlights */
+    .glow-cyan {
+      box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.3);
+    }
+    .glow-indigo {
+      box-shadow: 0 0 25px -5px rgba(99, 102, 241, 0.3);
+    }
+
+    /* Terminal blinking cursor */
+    .cursor-blink::after {
+      content: '▋';
+      animation: blink 1s infinite;
+      color: #22d3ee;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+  </style>
+</head>
+
+<body class="bg-dark-bg text-slate-100 font-sans transition-colors duration-300 dark:bg-[#0a0f1d] dark:text-slate-100 light:bg-slate-50 light:text-slate-800">
+
+  <!-- Navigation Header -->
+  <header id="header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 glass-card border-b border-slate-800/60 dark:border-slate-800/60 light:border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#home" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-500 to-accent-500 flex items-center justify-center text-white font-display font-bold text-xl shadow-lg transform group-hover:scale-105 transition-transform">
+          CA
+        </div>
+        <div class="flex flex-col">
+          <span class="font-display font-bold text-lg leading-tight tracking-wide text-white dark:text-white light:text-slate-900 group-hover:text-brand-400 transition-colors">
+            Charice Amador
+          </span>
+          <span class="text-xs text-brand-400 font-mono font-medium">IT & Dev</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-1 lg:gap-2">
+        <a href="#home" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-slate-300 dark:text-slate-300 light:text-slate-600 hover:text-brand-400 dark:hover:text-brand-400 light:hover:text-brand-600 transition-colors">Home</a>
+        <a href="#about" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-slate-300 dark:text-slate-300 light:text-slate-600 hover:text-brand-400 dark:hover:text-brand-400 light:hover:text-brand-600 transition-colors">About</a>
+        <a href="#skills" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-slate-300 dark:text-slate-300 light:text-slate-600 hover:text-brand-400 dark:hover:text-brand-400 light:hover:text-brand-600 transition-colors">Skills</a>
+        <a href="#projects" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-slate-300 dark:text-slate-300 light:text-slate-600 hover:text-brand-400 dark:hover:text-brand-400 light:hover:text-brand-600 transition-colors">Projects</a>
+        <a href="#certifications" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-slate-300 dark:text-slate-300 light:text-slate-600 hover:text-brand-400 dark:hover:text-brand-400 light:hover:text-brand-600 transition-colors">Education</a>
+        <a href="#contact" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-slate-300 dark:text-slate-300 light:text-slate-600 hover:text-brand-400 dark:hover:text-brand-400 light:hover:text-brand-600 transition-colors">Contact</a>
+      </nav>
+
+      <!-- Action Buttons & Theme Switcher -->
+      <div class="flex items-center gap-3">
+        <!-- Light/Dark Mode Switcher -->
+        <button id="themeToggleBtn" aria-label="Toggle Light and Dark Mode" class="p-2.5 rounded-xl bg-slate-800/80 dark:bg-slate-800/80 light:bg-slate-200 text-amber-400 dark:text-amber-400 light:text-indigo-600 hover:bg-slate-700 transition-all border border-slate-700/50">
+          <i id="themeIcon" class="fa-solid fa-moon text-lg"></i>
+        </button>
+
+        <!-- CTA Resume Header Button -->
+        <button onclick="openResumeModal()" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-500/10 hover:bg-brand-500/20 text-brand-400 border border-brand-500/30 text-sm font-medium transition-all">
+          <i class="fa-solid fa-file-arrow-down"></i>
+          <span>Resume</span>
+        </button>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobileMenuBtn" aria-label="Toggle Navigation Menu" class="md:hidden p-2.5 rounded-xl bg-slate-800/80 dark:bg-slate-800/80 light:bg-slate-200 text-slate-300 dark:text-slate-300 light:text-slate-800">
+          <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-slate-800 dark:border-slate-800 light:border-slate-200 bg-dark-bg/95 dark:bg-[#0a0f1d]/95 light:bg-white/95 px-4 pt-3 pb-6 space-y-2">
+      <a href="#home" class="mobile-link block px-4 py-2.5 rounded-lg text-base font-medium text-slate-200 dark:text-slate-200 light:text-slate-800 hover:bg-brand-500/10 hover:text-brand-400">Home</a>
+      <a href="#about" class="mobile-link block px-4 py-2.5 rounded-lg text-base font-medium text-slate-200 dark:text-slate-200 light:text-slate-800 hover:bg-brand-500/10 hover:text-brand-400">About</a>
+      <a href="#skills" class="mobile-link block px-4 py-2.5 rounded-lg text-base font-medium text-slate-200 dark:text-slate-200 light:text-slate-800 hover:bg-brand-500/10 hover:text-brand-400">Skills</a>
+      <a href="#projects" class="mobile-link block px-4 py-2.5 rounded-lg text-base font-medium text-slate-200 dark:text-slate-200 light:text-slate-800 hover:bg-brand-500/10 hover:text-brand-400">Projects</a>
+      <a href="#certifications" class="mobile-link block px-4 py-2.5 rounded-lg text-base font-medium text-slate-200 dark:text-slate-200 light:text-slate-800 hover:bg-brand-500/10 hover:text-brand-400">Education & Certs</a>
+      <a href="#contact" class="mobile-link block px-4 py-2.5 rounded-lg text-base font-medium text-slate-200 dark:text-slate-200 light:text-slate-800 hover:bg-brand-500/10 hover:text-brand-400">Contact</a>
+      <div class="pt-2">
+        <button onclick="openResumeModal()" class="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-brand-500 text-slate-900 font-semibold text-sm shadow-md">
+          <i class="fa-solid fa-file-arrow-down"></i>
+          <span>View Resume</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main class="pt-20">
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative min-h-[calc(100vh-5rem)] flex items-center py-16 lg:py-24 overflow-hidden">
+      <!-- Background Decorative Blur Elements -->
+      <div class="absolute top-1/4 left-10 w-72 h-72 bg-brand-500/15 rounded-full filter blur-[100px] -z-10"></div>
+      <div class="absolute bottom-1/4 right-10 w-96 h-96 bg-accent-500/15 rounded-full filter blur-[120px] -z-10"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Hero Content -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          
+          <!-- Availability Badge -->
+          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-800/80 dark:bg-slate-800/80 light:bg-slate-200 border border-brand-500/30 text-xs sm:text-sm font-medium text-brand-400">
+            <span class="relative flex h-2.5 w-2.5">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-500"></span>
+            </span>
+            <span>Available for Web & Mobile Projects</span>
+          </div>
+
+          <!-- Main Headline -->
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold tracking-tight text-white dark:text-white light:text-slate-900 leading-tight">
+            Hi, I'm <br class="hidden sm:inline" />
+            <span class="bg-gradient-to-r from-brand-400 via-cyan-300 to-accent-500 bg-clip-text text-transparent">
+              Charice Van Icelle Maruji Amador
+            </span>
+          </h1>
+
+          <!-- Dynamic Role Subtitle -->
+          <p class="text-lg sm:text-xl font-medium text-slate-300 dark:text-slate-300 light:text-slate-700 min-h-[30px]">
+            <span id="heroTypingRole" class="text-brand-400 font-mono font-semibold"></span>
+          </p>
+
+          <!-- Bio summary -->
+          <p class="text-slate-400 dark:text-slate-400 light:text-slate-600 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+            Information Technology student at Misamis University specializing in full-stack web application development, custom mobile engineering for Android TV with Jetpack Compose, and Python-driven data automation pipelines.
+          </p>
+
+          <!-- CTA Buttons -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+            <a href="#projects" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-brand-500 to-accent-500 hover:from-brand-600 hover:to-accent-600 text-slate-900 font-bold text-sm sm:text-base shadow-lg shadow-brand-500/25 hover:shadow-brand-500/40 transform hover:-translate-y-0.5 transition-all flex items-center gap-2">
+              <i class="fa-solid fa-code text-slate-900"></i>
+              <span>View My Projects</span>
+            </a>
+
+            <a href="#contact" class="px-6 py-3.5 rounded-xl bg-slate-800/80 dark:bg-slate-800/80 light:bg-white text-slate-200 dark:text-slate-200 light:text-slate-800 border border-slate-700 dark:border-slate-700 light:border-slate-300 hover:border-brand-400 hover:text-brand-400 font-semibold text-sm sm:text-base transition-all flex items-center gap-2">
+              <i class="fa-solid fa-paper-plane"></i>
+              <span>Get in Touch</span>
+            </a>
+
+            <button onclick="openResumeModal()" class="px-5 py-3.5 rounded-xl bg-slate-800/50 dark:bg-slate-800/50 light:bg-slate-100 text-slate-300 dark:text-slate-300 light:text-slate-700 border border-slate-700/60 dark:border-slate-700/60 light:border-slate-300 hover:bg-slate-800 text-sm font-medium transition-all flex items-center gap-2">
+              <i class="fa-solid fa-download text-brand-400"></i>
+              <span>Download Resume</span>
+            </button>
+          </div>
+
+          <!-- Quick Skills Pills -->
+          <div class="pt-6 border-t border-slate-800/60 dark:border-slate-800/60 light:border-slate-200 flex flex-wrap items-center justify-center lg:justify-start gap-3 text-xs text-slate-400 dark:text-slate-400 light:text-slate-600">
+            <span class="font-mono text-slate-500 uppercase tracking-wider">Core Tech:</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 dark:bg-slate-800 light:bg-slate-200 font-mono">PHP & MySQL</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 dark:bg-slate-800 light:bg-slate-200 font-mono">Jetpack Compose</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 dark:bg-slate-800 light:bg-slate-200 font-mono">Python ETL</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 dark:bg-slate-800 light:bg-slate-200 font-mono">AppSheet</span>
+          </div>
+
+        </div>
+
+        <!-- Right Interactive Terminal Widget -->
+        <div class="lg:col-span-5">
+          <div class="rounded-2xl glass-card overflow-hidden shadow-2xl border border-slate-700/50 glow-cyan transform hover:scale-[1.01] transition-transform">
+            
+            <!-- Terminal Header Bar -->
+            <div class="bg-slate-900/90 dark:bg-slate-900/90 light:bg-slate-800 px-4 py-3 flex items-center justify-between border-b border-slate-800">
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-red-500 inline-block"></span>
+                <span class="w-3 h-3 rounded-full bg-yellow-500 inline-block"></span>
+                <span class="w-3 h-3 rounded-full bg-green-500 inline-block"></span>
+              </div>
+              <div class="flex items-center gap-2 text-xs font-mono text-slate-400">
+                <i class="fa-solid fa-terminal text-brand-400"></i>
+                <span id="terminalActiveTabTitle">developer_profile.json</span>
+              </div>
+              <div class="text-xs text-slate-500 font-mono">zsh</div>
+            </div>
+
+            <!-- Terminal Tabs -->
+            <div class="bg-slate-950/80 dark:bg-slate-950/80 light:bg-slate-900 px-3 pt-2 flex items-center gap-1 border-b border-slate-800 font-mono text-xs overflow-x-auto">
+              <button onclick="switchTerminalTab('json')" id="tabBtnJson" class="tab-btn active border-b-2 border-brand-400 text-brand-400 px-3 py-1.5 flex items-center gap-1.5 font-medium">
+                <i class="fa-solid fa-file-code"></i> profile.json
+              </button>
+              <button onclick="switchTerminalTab('py')" id="tabBtnPy" class="tab-btn text-slate-400 hover:text-slate-200 px-3 py-1.5 flex items-center gap-1.5">
+                <i class="fa-brands fa-python text-amber-400"></i> automation.py
+              </button>
+              <button onclick="switchTerminalTab('kt')" id="tabBtnKt" class="tab-btn text-slate-400 hover:text-slate-200 px-3 py-1.5 flex items-center gap-1.5">
+                <i class="fa-solid fa-mobile-screen text-indigo-400"></i> CineStream.kt
+              </button>
+            </div>
+
+            <!-- Terminal Code Window Content -->
+            <div class="p-4 sm:p-5 font-mono text-xs sm:text-sm bg-[#090d16] text-slate-200 min-h-[300px] overflow-x-auto leading-relaxed">
+              
+              <!-- TAB 1: Profile JSON -->
+              <div id="tabContentJson" class="tab-content">
+                <pre class="text-slate-300"><code>{
+  <span class="text-cyan-400">"developer"</span>: <span class="text-amber-300">"Charice Van Icelle Maruji Amador"</span>,
+  <span class="text-cyan-400">"degree"</span>: <span class="text-amber-300">"BS Information Technology"</span>,
+  <span class="text-cyan-400">"institution"</span>: <span class="text-amber-300">"Misamis University"</span>,
+  <span class="text-cyan-400">"location"</span>: <span class="text-amber-300">"Northern Mindanao, Philippines"</span>,
+  <span class="text-cyan-400">"specializations"</span>: [
+    <span class="text-emerald-400">"Full-Stack Web (PHP/MySQL)"</span>,
+    <span class="text-emerald-400">"Android TV (Jetpack Compose)"</span>,
+    <span class="text-emerald-400">"Python Data ETL & Automation"</span>,
+    <span class="text-emerald-400">"AppSheet Business Solutions"</span>
+  ],
+  <span class="text-cyan-400">"status"</span>: <span class="text-brand-400">"Ready for Innovating & Coding 🚀"</span>
+}</code></pre>
+              </div>
+
+              <!-- TAB 2: Python Script -->
+              <div id="tabContentPy" class="tab-content hidden">
+                <pre class="text-slate-300"><code><span class="text-purple-400">import</span> pandas <span class="text-purple-400">as</span> pd
+<span class="text-purple-400">import</span> gspread
+
+<span class="text-slate-500"># MANUKAN NG BAYAN Sales Automation</span>
+<span class="text-purple-400">def</span> <span class="text-blue-400">process_sales_data</span>(sheet_url):
+    gc = gspread.service_account()
+    sh = gc.open_by_url(sheet_url)
+    df = pd.DataFrame(sh.sheet1.get_all_records())
+    
+    sql_statements = []
+    <span class="text-purple-400">for</span> _, row <span class="text-purple-400">in</span> df.iterrows():
+        query = <span class="text-amber-300">f"INSERT INTO sales VALUES ('{row['date']}', {row['total']});"</span>
+        sql_statements.append(query)
+        
+    <span class="text-purple-400">return</span> <span class="text-emerald-400">f"Processed {len(sql_statements)} rows cleanly!"</span></code></pre>
+              </div>
+
+              <!-- TAB 3: Android Compose Script -->
+              <div id="tabContentKt" class="tab-content hidden">
+                <pre class="text-slate-300"><code><span class="text-purple-400">@Composable</span>
+<span class="text-purple-400">fun</span> <span class="text-blue-400">CineStreamTvApp</span>() {
+    <span class="text-purple-400">val</span> categories = <span class="text-blue-400">remember</span> { listOf(<span class="text-amber-300">"Trending"</span>, <span class="text-amber-300">"Live"</span>, <span class="text-amber-300">"Movies"</span>) }
+    
+    <span class="text-blue-400">TvLazyColumn</span>(modifier = Modifier.fillMaxSize()) {
+        items(categories) { category ->
+            <span class="text-blue-400">TvMediaRow</span>(title = category)
+        }
+    }
+}</code></pre>
+              </div>
+
+            </div>
+
+            <!-- Terminal Footer Controls -->
+            <div class="bg-slate-900/90 dark:bg-slate-900/90 light:bg-slate-800 p-3 border-t border-slate-800 flex items-center justify-between">
+              <div class="flex items-center gap-2 text-xs text-slate-400 font-mono">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span id="terminalStatusText">Terminal Ready</span>
+              </div>
+              <button onclick="runTerminalScript()" class="px-3 py-1 rounded bg-brand-500/20 hover:bg-brand-500/30 text-brand-400 text-xs font-mono font-medium border border-brand-500/40 transition-colors flex items-center gap-1.5">
+                <i class="fa-solid fa-play text-[10px]"></i>
+                <span>Run Snippet</span>
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ABOUT ME SECTION -->
+    <section id="about" class="py-20 bg-slate-900/50 dark:bg-slate-900/50 light:bg-slate-100/80 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="text-xs font-mono font-bold text-brand-400 uppercase tracking-widest mb-2">
+            // Academic & Practical Background
+          </h2>
+          <h3 class="text-3xl sm:text-4xl font-display font-bold text-white dark:text-white light:text-slate-900">
+            Driven by Technical Curiosity & Real-World Impact
+          </h3>
+          <div class="w-16 h-1 bg-gradient-to-r from-brand-400 to-accent-500 mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Avatar / Graphic representation -->
+          <div class="lg:col-span-5 relative flex justify-center">
+            <div class="relative w-full max-w-sm rounded-3xl p-1 bg-gradient-to-tr from-brand-500 via-accent-500 to-cyan-300 shadow-2xl">
+              <div class="bg-slate-900 dark:bg-slate-900 light:bg-white p-6 sm:p-8 rounded-[22px] flex flex-col items-center text-center">
+                
+                <div class="w-32 h-32 rounded-2xl bg-gradient-to-tr from-slate-800 to-slate-700 flex items-center justify-center border-2 border-brand-400/40 shadow-inner mb-6 relative group">
+                  <i class="fa-solid fa-user-gear text-5xl text-brand-400 group-hover:scale-110 transition-transform"></i>
+                  <span class="absolute -bottom-2 -right-2 w-8 h-8 rounded-full bg-emerald-500 border-2 border-slate-900 flex items-center justify-center text-xs text-slate-900 font-bold" title="Verified Dev Profile">
+                    <i class="fa-solid fa-check"></i>
+                  </span>
+                </div>
+
+                <h4 class="text-xl font-display font-bold text-white dark:text-white light:text-slate-900">Charice Amador</h4>
+                <p class="text-sm text-brand-400 font-mono mt-1">Information Technology Student</p>
+                <p class="text-xs text-slate-400 dark:text-slate-400 light:text-slate-600 mt-1">Misamis University</p>
+
+                <div class="mt-6 pt-6 border-t border-slate-800 dark:border-slate-800 light:border-slate-200 w-full space-y-3 text-left text-xs text-slate-300 dark:text-slate-300 light:text-slate-700 font-mono">
+                  <div class="flex items-center justify-between">
+                    <span class="text-slate-500">Degree Focus:</span>
+                    <span class="font-semibold text-slate-200 dark:text-slate-200 light:text-slate-800">BS IT</span>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span class="text-slate-500">Primary Stack:</span>
+                    <span class="font-semibold text-slate-200 dark:text-slate-200 light:text-slate-800">PHP, Android, Python</span>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span class="text-slate-500">Region:</span>
+                    <span class="font-semibold text-slate-200 dark:text-slate-200 light:text-slate-800">Northern Mindanao, PH</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- Narrative Text & Info Cards -->
+          <div class="lg:col-span-7 space-y-6">
+            <h4 class="text-2xl font-display font-bold text-slate-100 dark:text-slate-100 light:text-slate-800">
+              Building pragmatic software solutions for web, mobile TV, and data workflows.
+            </h4>
+            
+            <p class="text-slate-300 dark:text-slate-300 light:text-slate-600 leading-relaxed text-base">
+              Currently pursuing a Bachelor of Science in Information Technology at <strong>Misamis University</strong>, I bridge abstract computer science concepts with scalable, hands-on applications. My journey spans full-stack web engineering, custom mobile UI design tailored for Android TV media streaming, and automated backend data engineering.
+            </p>
+
+            <p class="text-slate-300 dark:text-slate-300 light:text-slate-600 leading-relaxed text-base">
+              Whether building booking platforms with real-time queueing, engineering TV applications using Kotlin and Jetpack Compose, or automating Google Sheets sales data directly into relational MySQL databases via Python pipelines—I focus on precision, usability, and robust code structure.
+            </p>
+
+            <!-- Interactive Info Cards Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
+              
+              <div class="p-4 rounded-xl glass-card border border-slate-700/50 hover:border-brand-400/50 transition-all">
+                <div class="w-10 h-10 rounded-lg bg-brand-500/10 flex items-center justify-center text-brand-400 mb-3 text-xl">
+                  <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <h5 class="font-display font-bold text-slate-100 dark:text-slate-100 light:text-slate-900 text-sm">Misamis Univ</h5>
+                <p class="text-xs text-slate-400 dark:text-slate-400 light:text-slate-600 mt-1">BS Information Technology Degree Candidate</p>
+              </div>
+
+              <div class="p-4 rounded-xl glass-card border border-slate-700/50 hover:border-accent-500/50 transition-all">
+                <div class="w-10 h-10 rounded-lg bg-accent-500/10 flex items-center justify-center text-accent-500 mb-3 text-xl">
+                  <i class="fa-solid fa-tv"></i>
+                </div>
+                <h5 class="font-display font-bold text-slate-100 dark:text-slate-100 light:text-slate-900 text-sm">Android TV Dev</h5>
+                <p class="text-xs text-slate-400 dark:text-slate-400 light:text-slate-600 mt-1">Jetpack Compose & Media Streaming UI</p>
+              </div>
+
+              <div class="p-4 rounded-xl glass-card border border-slate-700/50 hover:border-emerald-500/50 transition-all">
+                <div class="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400 mb-3 text-xl">
+                  <i class="fa-solid fa-robot"></i>
+                </div>
+                <h5 class="font-display font-bold text-slate-100 dark:text-slate-100 light:text-slate-900 text-sm">Data Automation</h5>
+                <p class="text-xs text-slate-400 dark:text-slate-400 light:text-slate-600 mt-1">Python, pandas, gspread & MySQL ETL</p>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SKILLS & TECH STACK SECTION -->
+    <section id="skills" class="py-20 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <h2 class="text-xs font-mono font-bold text-brand-400 uppercase tracking-widest mb-2">
+            // Tech Stack & Proficiency
+          </h2>
+          <h3 class="text-3xl sm:text-4xl font-display font-bold text-white dark:text-white light:text-slate-900">
+            Skills & Specialized Tools
+          </h3>
+          <p class="text-slate-400 dark:text-slate-400 light:text-slate-600 mt-3 text-sm sm:text-base">
+            Categorized skills tailored for Web Development, Mobile TV applications, and Automated Business Systems.
+          </p>
+          <div class="w-16 h-1 bg-gradient-to-r from-brand-400 to-accent-500 mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-10">
+          <button onclick="filterSkills('all')" id="skillTab-all" class="skill-tab-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all bg-brand-500 text-slate-900 font-semibold shadow-md">
+            All Technologies
+          </button>
+          <button onclick="filterSkills('web')" id="skillTab-web" class="skill-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all bg-slate-800/80 dark:bg-slate-800/80 light:bg-slate-200 text-slate-300 dark:text-slate-300 light:text-slate-700 hover:text-brand-400">
+            Web & Backend
+          </button>
+          <button onclick="filterSkills('mobile')" id="skillTab-mobile" class="skill-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all bg-slate-800/80 dark:bg-slate-800/80 light:bg-slate-200 text-slate-300 dark:text-slate-300 light:text-slate-700 hover:text-brand-400">
+            Mobile & UI
+          </button>
+          <button onclick="filterSkills('automation')" id="skillTab-automation" class="skill-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all bg-slate-800/80 dark:bg-slate-800/80 light:bg-slate-200 text-slate-300 dark:text-slate-300 light:text-slate-700 hover:text-brand-400">
+            Automation & Tools
+          </button>
+        </div>
+
+        <!-- Skills Cards Grid -->
+        <div id="skillsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- Skill Item: PHP -->
+          <div class="skill-card web glass-card p-6 rounded-2xl border border-slate-800 hover:border-brand-400/60 transition-all group">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400 text-2xl group-hover:scale-110 transition-transform">
+                <i class="fa-brands fa-php"></i>
+              </div>
+              <span class="px-2.5 py-1 rounded-full bg-purple-500/10 text-purple-400 font-mono text-[11px] font-semibold">Backend</span>
+            </div>
+            <h4 class="font-display font-bold text-lg text-white dark:text-white light:text-slate-900">PHP</h4>
+            <p class="text-xs text-slate-400 dark:text-slate-400 light:text-slate-600 mt-1">Full-stack server logic, booking queue systems, REST APIs & session handlers.</p>
+            <div class="w-full bg-slate-800 rounded-full h-1.5 mt-4 overflow-hidden">
+              <div class="bg-purple-400 h-1.5 rounded-full w-[88%]"></div>
+            </div>
+          </div>
+
+          <!-- Skill Item: MySQL -->
+          <div class="skill-card web glass-card p-6 rounded-2xl border border-slate-800 hover:border-brand-400/60 transition-all group">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 text-2xl group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-database"></i>
+              </div>
+              <span class="px-2.5 py-1 rounded-full bg-blue-500/10 text-blue-400 font-mono text-[11px] font-semibold">Database</span>
+            </div>
+            <h4 class="font-display font-bold text-lg text-white dark:text-white light:text-slate-900">MySQL</h4>
+            <p class="text-xs text-slate-400 dark:text-slate-400 light:text-slate-600 mt-1">Relational schema design, complex query optimization, relational joins & triggers.</p>
+            <div class="w-full bg-slate-800 rounded-full h-1.5 mt-4 overflow-hidden">
+              <div class="bg-blue-400 h-1.5 rounded-full w-[85%]"></div>
+            </div>
+          </div>
+
+          <!-- Skill Item: JavaScript -->
+          <div class="skill-card web glass-card p-6 rounded-2xl border border-slate-800 hover:border-brand-400/60 transition-all group">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 text-2xl group-hover:scale-110 transition-transform">
+                <i class="fa-brands fa-js"></i>
+              </div>
+              <span class="px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-400 font-mono text-[11px] font-semibold">Frontend</span>
+            </div>
+            <h4 class="font-display font-bold text-lg text-white dark:text-white light:text-slate-900">JavaScript (ES6+)</h4>
+            <p class="text-xs text-slate-400 dark:text-slate-400 light:text-slate-600 mt-1">DOM manipulation, async data requests, dynamic UI rendering & interactive components.</p>
+            <div class="w-full bg-slate-800 rounded-full h-1.5 mt-4 overflow-hidden">
+              <div class="bg-amber-400 h-1.5 rounded-full w-[82%]"></div>
+            </div>
+          </div>
+
+          <!-- Skill Item: HTML5 & CSS3 & Tailwind -->
+          <div class="skill-card web glass-card p-6 rounded-2xl border border-slate-800 hover:border-brand-400/60 transition-all group">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center text-cyan-400 text-2xl group-hover:scale-110 transition-transform">
+                <i class="fa-brands fa-html5"></i>
+              </div>
+              <span class="px-2.5 py-1 rounded-full bg-cyan-500/10 text-cyan-400 font-mono text-[11px] font-semibold">UI / UX</span>
+            </div>
+            <h4 class="font-display font-bold text-lg text-white dark:text-white light:text-slate-900">HTML5 / CSS3 / Tailwind</h4>
+            <p class="text-xs text-slate-400 dark:text-slate-400 light:text-slate-600 mt-1">Semantic structures, mobile-first responsive layouts, modern design tokens.</p>
+            <div class="w-full bg-slate-800 rounded-full h-1.5 mt-4 overflow-hidden">
+              <div class="bg-cyan-400 h-1.5 rounded-full w-[90%]"></div>
+            </div>
+          </div>
+
+          <!-- Skill Item: Android Studio & Jetpack Compose -->
+          <div class="skill-card mobile glass-card p-6 rounded-2xl border border-slate-800 hover:border-brand-400/60 transition-all group">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 text-2xl group-hover:scale-110 transition-transform">
+                <i class="fa-brands fa-android"></i>
+              </div>
+              <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 font-mono text-[11px] font-semibold">Mobile</span>
+            </div>
+            <h4 class="font-display font-bold text-lg text-white dark:text-white light:text-slate-900">Android TV & Jetpack Compose</h4>
+            <p class="text-xs text-slate-400 dark:text-slate-400 light:text-slate-600 mt-1">Declarative mobile & Android TV application UI, D-Pad navigation, media player integrations.</p>
+            <div class="w-full bg-slate-800 rounded-full h-1.5 mt-4 overflow-hidden">
+              <div class="bg-emerald-400 h-1.5 rounded-full w-[85%]"></div>
+            </div>
+          </div>
+
+          <!-- Skill Item: Python, pandas & gspread -->
+          <div class="skill-card automation glass-card p-6 rounded-2xl border border-slate-800 hover:border-brand-400/60 transition-all group">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-xl bg-yellow-500/10 flex items-center justify-center text-amber-400 text-2xl group-hover:scale-110 transition-transform">
+                <i class="fa-brands fa-python"></i>
+              </div>
+              <span class="px-2.5 py-1 rounded-full bg-yellow-500/10 text-amber-400 font-mono text-[11px] font-semibold">Automation</span>
+            </div>
+            <h4 class="font-display font-bold text-lg text-white dark:text-white light:text-slate-900">Python (pandas & gspread)</h4>
+            <p class="text-xs text-slate-400 dark:text-slate-400 light:text-slate-600 mt-1">Automated ETL scripts, Google Sheets API integration, generating MySQL SQL queries.</p>
+            <div class="w-full bg-slate-800 rounded-full h-1.5 mt-4 overflow-hidden">
+              <div class="bg-amber-400 h-1.5 rounded-full w-[88%]"></div>
+            </div>
+          </div>
+
+          <!-- Skill Item: AppSheet No-Code Enterprise -->
+          <div class="skill-card automation glass-card p-6 rounded-2xl border border-slate-800 hover:border-brand-400/60 transition-all group">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-400 text-2xl group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-cubes"></i>
+              </div>
+              <span class="px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 font-mono text-[11px] font-semibold">No-Code / Platform</span>
+            </div>
+            <h4 class="font-display font-bold text-lg text-white dark:text-white light:text-slate-900">AppSheet Solutions</h4>
+            <p class="text-xs text-slate-400 dark:text-slate-400 light:text-slate-600 mt-1">Enterprise inventory tools, automated workflows, custom formulas & mobile data entry.</p>
+            <div class="w-full bg-slate-800 rounded-full h-1.5 mt-4 overflow-hidden">
+              <div class="bg-indigo-400 h-1.5 rounded-full w-[82%]"></div>
+            </div>
+          </div>
+
+          <!-- Skill Item: Git / GitHub & Cisco IT Support -->
+          <div class="skill-card automation glass-card p-6 rounded-2xl border border-slate-800 hover:border-brand-400/60 transition-all group">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-xl bg-rose-500/10 flex items-center justify-center text-rose-400 text-2xl group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-network-wired"></i>
+              </div>
+              <span class="px-2.5 py-1 rounded-full bg-rose-500/10 text-rose-400 font-mono text-[11px] font-semibold">Tools & Support</span>
+            </div>
+            <h4 class="font-display font-bold text-lg text-white dark:text-white light:text-slate-900">Git / GitHub & IT Support</h4>
+            <p class="text-xs text-slate-400 dark:text-slate-400 light:text-slate-600 mt-1">Version control flow, repository management, hardware/software support fundamentals (Cisco).</p>
+            <div class="w-full bg-slate-800 rounded-full h-1.5 mt-4 overflow-hidden">
+              <div class="bg-rose-400 h-1.5 rounded-full w-[86%]"></div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FEATURED PROJECTS SECTION -->
+    <section id="projects" class="py-20 bg-slate-900/50 dark:bg-slate-900/50 light:bg-slate-100/80 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <h2 class="text-xs font-mono font-bold text-brand-400 uppercase tracking-widest mb-2">
+            // Handcrafted Solutions
+          </h2>
+          <h3 class="text-3xl sm:text-4xl font-display font-bold text-white dark:text-white light:text-slate-900">
+            Featured Projects Gallery
+          </h3>
+          <p class="text-slate-400 dark:text-slate-400 light:text-slate-600 mt-3 text-sm sm:text-base">
+            Explore full-stack web applications, Android TV media software, sales data automation, and enterprise business tools.
+          </p>
+          <div class="w-16 h-1 bg-gradient-to-r from-brand-400 to-accent-500 mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <!-- Project Filter Buttons -->
+        <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-12">
+          <button onclick="filterProjects('all')" id="projTab-all" class="proj-tab-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all bg-brand-500 text-slate-900 font-semibold shadow-md">
+            All Projects
+          </button>
+          <button onclick="filterProjects('web')" id="projTab-web" class="proj-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all bg-slate-800/80 dark:bg-slate-800/80 light:bg-slate-200 text-slate-300 dark:text-slate-300 light:text-slate-700 hover:text-brand-400">
+            Web Applications
+          </button>
+          <button onclick="filterProjects('mobile')" id="projTab-mobile" class="proj-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all bg-slate-800/80 dark:bg-slate-800/80 light:bg-slate-200 text-slate-300 dark:text-slate-300 light:text-slate-700 hover:text-brand-400">
+            Mobile / Android TV
+          </button>
+          <button onclick="filterProjects('automation')" id="projTab-automation" class="proj-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all bg-slate-800/80 dark:bg-slate-800/80 light:bg-slate-200 text-slate-300 dark:text-slate-300 light:text-slate-700 hover:text-brand-400">
+            Automation & Tools
+          </button>
+        </div>
+
+        <!-- Projects Grid Container -->
+        <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          
+          <!-- PROJECT 1: Pickleball Booking -->
+          <div class="project-card web glass-card rounded-2xl overflow-hidden border border-slate-800 hover:border-brand-400/50 transition-all group flex flex-col justify-between">
+            <div>
+              <!-- Visual Mock Header -->
+              <div class="h-52 bg-gradient-to-br from-slate-900 via-emerald-950 to-slate-900 p-6 relative flex flex-col justify-between overflow-hidden border-b border-slate-800">
+                <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-emerald-500/10 rounded-full filter blur-2xl group-hover:scale-125 transition-transform"></div>
+                <div class="flex justify-between items-start z-10">
+                  <span class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 font-mono text-xs font-semibold border border-emerald-500/30">
+                    Full-Stack Web App
+                  </span>
+                  <div class="w-10 h-10 rounded-xl bg-slate-800/80 flex items-center justify-center text-emerald-400">
+                    <i class="fa-solid fa-table-tennis-paddle-ball text-xl"></i>
+                  </div>
+                </div>
+                <div class="z-10">
+                  <h4 class="text-xs font-mono text-emerald-300 mb-1">PHP / MySQL System</h4>
+                  <p class="text-xl font-display font-bold text-white">Pickleball Court Booking & Queue System</p>
+                </div>
+              </div>
+
+              <!-- Content Body -->
+              <div class="p-6">
+                <p class="text-slate-300 dark:text-slate-300 light:text-slate-600 text-sm leading-relaxed">
+                  Comprehensive sports facility web platform featuring interactive court slot reservation, live OpenPlay queue management algorithms, and dynamic admin scheduling control.
+                </p>
+
+                <!-- Tags -->
+                <div class="flex flex-wrap gap-2 mt-4">
+                  <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 font-mono text-xs">PHP</span>
+                  <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 font-mono text-xs">MySQL</span>
+                  <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 font-mono text-xs">JavaScript</span>
+                  <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 font-mono text-xs">Tailwind CSS</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Footer Action Bar -->
+            <div class="p-6 pt-0 flex items-center justify-between border-t border-slate-800/60 mt-4">
+              <button onclick="openProjectModal('pickleball')" class="text-brand-400 hover:text-brand-300 font-medium text-sm flex items-center gap-1.5 transition-colors">
+                <span>View Specs & Architecture</span>
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+              </button>
+              <div class="flex items-center gap-3">
+                <a href="#contact" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs" title="Inquire About This Project">
+                  <i class="fa-solid fa-envelope"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROJECT 2: CineStream Android TV App -->
+          <div class="project-card mobile glass-card rounded-2xl overflow-hidden border border-slate-800 hover:border-accent-500/50 transition-all group flex flex-col justify-between">
+            <div>
+              <!-- Visual Mock Header -->
+              <div class="h-52 bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 p-6 relative flex flex-col justify-between overflow-hidden border-b border-slate-800">
+                <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-accent-500/10 rounded-full filter blur-2xl group-hover:scale-125 transition-transform"></div>
+                <div class="flex justify-between items-start z-10">
+                  <span class="px-3 py-1 rounded-full bg-accent-500/20 text-accent-400 font-mono text-xs font-semibold border border-accent-500/30">
+                    Android TV Mobile App
+                  </span>
+                  <div class="w-10 h-10 rounded-xl bg-slate-800/80 flex items-center justify-center text-accent-400">
+                    <i class="fa-solid fa-tv text-xl"></i>
+                  </div>
+                </div>
+                <div class="z-10">
+                  <h4 class="text-xs font-mono text-accent-300 mb-1">Jetpack Compose & Kotlin</h4>
+                  <p class="text-xl font-display font-bold text-white">CineStream Android TV Application</p>
+                </div>
+              </div>
+
+              <!-- Content Body -->
+              <div class="p-6">
+                <p class="text-slate-300 dark:text-slate-300 light:text-slate-600 text-sm leading-relaxed">
+                  Media streaming application engineered specifically for Android TV smart screens using Jetpack Compose TV components, D-Pad remote control focus navigation, and streaming player layouts.
+                </p>
+
+                <!-- Tags -->
+                <div class="flex flex-wrap gap-2 mt-4">
+                  <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 font-mono text-xs">Android Studio</span>
+                  <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 font-mono text-xs">Jetpack Compose TV</span>
+                  <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 font-mono text-xs">Kotlin</span>
+                  <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 font-mono text-xs">ExoPlayer</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Footer Action Bar -->
+            <div class="p-6 pt-0 flex items-center justify-between border-t border-slate-800/60 mt-4">
+              <button onclick="openProjectModal('cinestream')" class="text-accent-400 hover:text-accent-300 font-medium text-sm flex items-center gap-1.5 transition-colors">
+                <span>View Specs & Architecture</span>
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+              </button>
+              <div class="flex items-center gap-3">
+                <a href="#contact" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs" title="Inquire About This Project">
+                  <i class="fa-solid fa-envelope"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROJECT 3: MANUKAN NG BAYAN Sales Automation -->
+          <div class="project-card automation glass-card rounded-2xl overflow-hidden border border-slate-800 hover:border-amber-400/50 transition-all group flex flex-col justify-between">
+            <div>
+              <!-- Visual Mock Header -->
+              <div class="h-52 bg-gradient-to-br from-slate-900 via-amber-950 to-slate-900 p-6 relative flex flex-col justify-between overflow-hidden border-b border-slate-800">
+                <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-amber-500/10 rounded-full filter blur-2xl group-hover:scale-125 transition-transform"></div>
+                <div class="flex justify-between items-start z-10">
+                  <span class="px-3 py-1 rounded-full bg-amber-500/20 text-amber-400 font-mono text-xs font-semibold border border-amber-500/30">
+                    Data Pipeline Script
+                  </span>
+                  <div class="w-10 h-10 rounded-xl bg-slate-800/80 flex items-center justify-center text-amber-400">
+                    <i class="fa-brands fa-python text-xl"></i>
+                  </div>
+                </div>
+                <div class="z-10">
+                  <h4 class="text-xs font-mono text-amber-300 mb-1">ETL & Automation Engine</h4>
+                  <p class="text-xl font-display font-bold text-white">MANUKAN NG BAYAN Sales Automation</p>
+                </div>
+              </div>
+
+              <!-- Content Body -->
+              <div class="p-6">
+                <p class="text-slate-300 dark:text-slate-300 light:text-slate-600 text-sm leading-relaxed">
+                  Python automation script extracting Google Sheets daily store sales using gspread & pandas, transforming transaction data, and auto-generating optimized MySQL SQL statements for database ingestion.
+                </p>
+
+                <!-- Tags -->
+                <div class="flex flex-wrap gap-2 mt-4">
+                  <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 font-mono text-xs">Python</span>
+                  <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 font-mono text-xs">pandas</span>
+                  <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 font-mono text-xs">gspread</span>
+                  <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 font-mono text-xs">MySQL Automation</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Footer Action Bar -->
+            <div class="p-6 pt-0 flex items-center justify-between border-t border-slate-800/60 mt-4">
+              <button onclick="openProjectModal('manukan')" class="text-amber-400 hover:text-amber-300 font-medium text-sm flex items-center gap-1.5 transition-colors">
+                <span>View Specs & Script Logic</span>
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+              </button>
+              <div class="flex items-center gap-3">
+                <a href="#contact" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs" title="Inquire About This Project">
+                  <i class="fa-solid fa-envelope"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROJECT 4: AppSheet Inventory Apps -->
+          <div class="project-card automation glass-card rounded-2xl overflow-hidden border border-slate-800 hover:border-cyan-400/50 transition-all group flex flex-col justify-between">
+            <div>
+              <!-- Visual Mock Header -->
+              <div class="h-52 bg-gradient-to-br from-slate-900 via-cyan-950 to-slate-900 p-6 relative flex flex-col justify-between overflow-hidden border-b border-slate-800">
+                <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-cyan-500/10 rounded-full filter blur-2xl group-hover:scale-125 transition-transform"></div>
+                <div class="flex justify-between items-start z-10">
+                  <span class="px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-400 font-mono text-xs font-semibold border border-cyan-500/30">
+                    No-Code Enterprise App
+                  </span>
+                  <div class="w-10 h-10 rounded-xl bg-slate-800/80 flex items-center justify-center text-cyan-400">
+                    <i class="fa-solid fa-boxes-stacked text-xl"></i>
+                  </div>
+                </div>
+                <div class="z-10">
+                  <h4 class="text-xs font-mono text-cyan-300 mb-1">AppSheet & Cloud Sync</h4>
+                  <p class="text-xl font-display font-bold text-white">AppSheet Inventory Management Systems</p>
+                </div>
+              </div>
+
+              <!-- Content Body -->
+              <div class="p-6">
+                <p class="text-slate-300 dark:text-slate-300 light:text-slate-600 text-sm leading-relaxed">
+                  Custom mobile-ready inventory control applications enabling real-time stock scanning, automated reorder threshold triggers, and structured multi-user access rules.
+                </p>
+
+                <!-- Tags -->
+                <div class="flex flex-wrap gap-2 mt-4">
+                  <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 font-mono text-xs">AppSheet</span>
+                  <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 font-mono text-xs">Google Workspace</span>
+                  <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 font-mono text-xs">Real-time Sync</span>
+                  <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 font-mono text-xs">Workflow Rules</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Footer Action Bar -->
+            <div class="p-6 pt-0 flex items-center justify-between border-t border-slate-800/60 mt-4">
+              <button onclick="openProjectModal('appsheet')" class="text-cyan-400 hover:text-cyan-300 font-medium text-sm flex items-center gap-1.5 transition-colors">
+                <span>View Specs & Features</span>
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+              </button>
+              <div class="flex items-center gap-3">
+                <a href="#contact" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs" title="Inquire About This Project">
+                  <i class="fa-solid fa-envelope"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS & EDUCATION SECTION -->
+    <section id="certifications" class="py-20 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="text-xs font-mono font-bold text-brand-400 uppercase tracking-widest mb-2">
+            // Milestone Journey
+          </h2>
+          <h3 class="text-3xl sm:text-4xl font-display font-bold text-white dark:text-white light:text-slate-900">
+            Education & Certifications
+          </h3>
+          <p class="text-slate-400 dark:text-slate-400 light:text-slate-600 mt-3 text-sm sm:text-base">
+            Academic achievements and industry credentials forming the technical foundation.
+          </p>
+          <div class="w-16 h-1 bg-gradient-to-r from-brand-400 to-accent-500 mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <!-- Vertical Timeline Container -->
+        <div class="max-w-4xl mx-auto relative border-l-2 border-slate-800 dark:border-slate-800 light:border-slate-300 ml-4 sm:ml-auto pl-6 sm:pl-8 space-y-12">
+          
+          <!-- TIMELINE ITEM 1: Misamis University -->
+          <div class="relative group">
+            <!-- Node Dot -->
+            <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-6 h-6 rounded-full bg-slate-900 border-2 border-brand-400 flex items-center justify-center text-[10px] text-brand-400 group-hover:scale-125 transition-transform">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+
+            <!-- Content Card -->
+            <div class="glass-card p-6 rounded-2xl border border-slate-800 hover:border-brand-400/50 transition-all">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                <span class="px-3 py-1 rounded-full bg-brand-500/10 text-brand-400 font-mono text-xs font-semibold">
+                  Undergraduate Degree Program
+                </span>
+                <span class="text-xs font-mono text-slate-400">Northern Mindanao, Philippines</span>
+              </div>
+              <h4 class="text-xl font-display font-bold text-white dark:text-white light:text-slate-900">
+                Bachelor of Science in Information Technology
+              </h4>
+              <p class="text-sm font-semibold text-brand-400 mt-1">Misamis University</p>
+              
+              <p class="text-xs text-slate-300 dark:text-slate-300 light:text-slate-600 mt-3 leading-relaxed">
+                Comprehensive academic curriculum focused on modern software engineering, database management systems, algorithm complexity, mobile computing, network fundamentals, and web application security.
+              </p>
+
+              <div class="mt-4 pt-4 border-t border-slate-800/80 flex flex-wrap gap-2 text-xs text-slate-400">
+                <span class="px-2.5 py-1 rounded bg-slate-800 font-mono">Software Engineering</span>
+                <span class="px-2.5 py-1 rounded bg-slate-800 font-mono">Database Architecture</span>
+                <span class="px-2.5 py-1 rounded bg-slate-800 font-mono">Web Systems</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- TIMELINE ITEM 2: Cisco IT Customer Support Basics -->
+          <div class="relative group">
+            <!-- Node Dot -->
+            <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-6 h-6 rounded-full bg-slate-900 border-2 border-accent-500 flex items-center justify-center text-[10px] text-accent-400 group-hover:scale-125 transition-transform">
+              <i class="fa-solid fa-certificate"></i>
+            </div>
+
+            <!-- Content Card -->
+            <div class="glass-card p-6 rounded-2xl border border-slate-800 hover:border-accent-500/50 transition-all">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                <span class="px-3 py-1 rounded-full bg-accent-500/10 text-accent-400 font-mono text-xs font-semibold">
+                  Official Cisco Certification
+                </span>
+                <span class="text-xs font-mono text-slate-400">Cisco Networking Academy</span>
+              </div>
+              <h4 class="text-xl font-display font-bold text-white dark:text-white light:text-slate-900">
+                IT Customer Support Basics
+              </h4>
+              <p class="text-sm font-semibold text-accent-400 mt-1">Cisco Systems & Networking Academy</p>
+              
+              <p class="text-xs text-slate-300 dark:text-slate-300 light:text-slate-600 mt-3 leading-relaxed">
+                Certified in IT support operations, hardware/software troubleshooting protocols, operating system diagnostics, network connectivity troubleshooting, and structured client assistance best practices.
+              </p>
+
+              <div class="mt-4 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs font-mono text-emerald-400 flex items-center gap-1.5">
+                  <i class="fa-solid fa-shield-check"></i>
+                  <span>Credential Verified</span>
+                </span>
+                <button onclick="showCertToast()" class="px-3 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 font-medium transition-colors">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- INTERACTIVE CONTACT SECTION -->
+    <section id="contact" class="py-20 bg-slate-900/50 dark:bg-slate-900/50 light:bg-slate-100/80 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="text-xs font-mono font-bold text-brand-400 uppercase tracking-widest mb-2">
+            // Get In Touch
+          </h2>
+          <h3 class="text-3xl sm:text-4xl font-display font-bold text-white dark:text-white light:text-slate-900">
+            Let's Collaborate on Your Next Project
+          </h3>
+          <p class="text-slate-400 dark:text-slate-400 light:text-slate-600 mt-3 text-sm sm:text-base">
+            Have a project in mind or want to discuss web systems, Android TV apps, or Python data scripts? Drop a line!
+          </p>
+          <div class="w-16 h-1 bg-gradient-to-r from-brand-400 to-accent-500 mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+          
+          <!-- Contact Info Cards -->
+          <div class="lg:col-span-5 space-y-4">
+            
+            <!-- Email Info Box -->
+            <div class="glass-card p-6 rounded-2xl border border-slate-800 flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-brand-500/10 flex items-center justify-center text-brand-400 text-xl shrink-0">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div class="flex-grow">
+                <h4 class="text-xs font-mono text-slate-400 uppercase">Direct Email</h4>
+                <p id="emailAddressText" class="text-sm font-semibold text-white dark:text-white light:text-slate-900 mt-1">charice.amador@example.com</p>
+                <button onclick="copyToClipboard('charice.amador@example.com', 'Email address copied!')" class="mt-2 text-xs font-mono text-brand-400 hover:text-brand-300 flex items-center gap-1">
+                  <i class="fa-regular fa-copy"></i>
+                  <span>Copy Address</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Location Info Box -->
+            <div class="glass-card p-6 rounded-2xl border border-slate-800 flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-accent-500/10 flex items-center justify-center text-accent-400 text-xl shrink-0">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div>
+                <h4 class="text-xs font-mono text-slate-400 uppercase">Location</h4>
+                <p class="text-sm font-semibold text-white dark:text-white light:text-slate-900 mt-1">Northern Mindanao, Philippines</p>
+                <p class="text-xs text-slate-400 mt-1">Misamis University Academic Campus Hub</p>
+              </div>
+            </div>
+
+            <!-- Social Links Box -->
+            <div class="glass-card p-6 rounded-2xl border border-slate-800">
+              <h4 class="text-xs font-mono text-slate-400 uppercase mb-4">Connect Socially</h4>
+              <div class="grid grid-cols-2 gap-3">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="p-3 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-200 text-xs font-medium flex items-center gap-2.5 transition-colors">
+                  <i class="fa-brands fa-github text-lg"></i>
+                  <span>GitHub Profile</span>
+                </a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="p-3 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-200 text-xs font-medium flex items-center gap-2.5 transition-colors">
+                  <i class="fa-brands fa-linkedin text-lg text-blue-400"></i>
+                  <span>LinkedIn</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Interactive Contact Form -->
+          <div class="lg:col-span-7">
+            <div class="glass-card p-6 sm:p-8 rounded-2xl border border-slate-800">
+              <form id="portfolioContactForm" onsubmit="handleContactSubmit(event)" class="space-y-5">
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <!-- Name Field -->
+                  <div>
+                    <label for="contactName" class="block text-xs font-mono font-medium text-slate-300 dark:text-slate-300 light:text-slate-700 mb-1.5">
+                      Your Name <span class="text-brand-400">*</span>
+                    </label>
+                    <input type="text" id="contactName" required placeholder="e.g. Maria Santos" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 dark:bg-slate-900/90 light:bg-white text-slate-100 dark:text-slate-100 light:text-slate-900 border border-slate-700 focus:border-brand-400 focus:outline-none text-sm transition-all" />
+                  </div>
+
+                  <!-- Email Field -->
+                  <div>
+                    <label for="contactEmail" class="block text-xs font-mono font-medium text-slate-300 dark:text-slate-300 light:text-slate-700 mb-1.5">
+                      Your Email <span class="text-brand-400">*</span>
+                    </label>
+                    <input type="email" id="contactEmail" required placeholder="e.g. maria@domain.com" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 dark:bg-slate-900/90 light:bg-white text-slate-100 dark:text-slate-100 light:text-slate-900 border border-slate-700 focus:border-brand-400 focus:outline-none text-sm transition-all" />
+                  </div>
+                </div>
+
+                <!-- Subject Field -->
+                <div>
+                  <label for="contactSubject" class="block text-xs font-mono font-medium text-slate-300 dark:text-slate-300 light:text-slate-700 mb-1.5">
+                    Subject <span class="text-brand-400">*</span>
+                  </label>
+                  <input type="text" id contactSubject required placeholder="e.g. Web / Mobile Development Inquiry" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 dark:bg-slate-900/90 light:bg-white text-slate-100 dark:text-slate-100 light:text-slate-900 border border-slate-700 focus:border-brand-400 focus:outline-none text-sm transition-all" />
+                </div>
+
+                <!-- Message Field -->
+                <div>
+                  <label for="contactMessage" class="block text-xs font-mono font-medium text-slate-300 dark:text-slate-300 light:text-slate-700 mb-1.5">
+                    Message <span class="text-brand-400">*</span>
+                  </label>
+                  <textarea id="contactMessage" rows="4" required placeholder="Share details about your project, timeline, or inquiry..." class="w-full px-4 py-3 rounded-xl bg-slate-900/90 dark:bg-slate-900/90 light:bg-white text-slate-100 dark:text-slate-100 light:text-slate-900 border border-slate-700 focus:border-brand-400 focus:outline-none text-sm transition-all resize-none"></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" id="contactSubmitBtn" class="w-full py-4 rounded-xl bg-gradient-to-r from-brand-500 to-accent-500 hover:from-brand-600 hover:to-accent-600 text-slate-900 font-bold text-base shadow-lg shadow-brand-500/20 hover:shadow-brand-500/35 transition-all flex items-center justify-center gap-2">
+                  <i class="fa-solid fa-paper-plane"></i>
+                  <span>Send Message</span>
+                </button>
+
+              </form>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800/80 dark:border-slate-800/80 light:border-slate-200 py-10 bg-slate-950 dark:bg-slate-950 light:bg-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-brand-500 to-accent-500 flex items-center justify-center text-white font-display font-bold text-sm">
+          CA
+        </div>
+        <div class="text-sm text-slate-400">
+          © <span id="currentYear">2026</span> <strong class="text-slate-200">Charice Van Icelle Maruji Amador</strong>. All rights reserved.
+        </div>
+      </div>
+
+      <div class="flex items-center gap-6 text-sm text-slate-400">
+        <a href="#home" class="hover:text-brand-400 transition-colors">Home</a>
+        <a href="#about" class="hover:text-brand-400 transition-colors">About</a>
+        <a href="#projects" class="hover:text-brand-400 transition-colors">Projects</a>
+        <a href="#contact" class="hover:text-brand-400 transition-colors">Contact</a>
+      </div>
+
+      <button onclick="scrollToTop()" aria-label="Scroll back to top" class="w-10 h-10 rounded-xl bg-slate-800 hover:bg-slate-700 text-brand-400 flex items-center justify-center transition-colors">
+        <i class="fa-solid fa-arrow-up"></i>
+      </button>
+
+    </div>
+  </footer>
+
+  <!-- PROJECT DETAILS MODAL -->
+  <div id="projectModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
+    <div class="glass-card max-w-2xl w-full max-h-[90vh] overflow-y-auto rounded-3xl border border-slate-700 shadow-2xl p-6 sm:p-8 relative text-slate-200">
+      
+      <button onclick="closeProjectModal()" aria-label="Close Modal" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div id="projectModalContent">
+        <!-- Dynamic Modal Content Injection -->
+      </div>
+
+    </div>
+  </div>
+
+  <!-- RESUME PREVIEW MODAL -->
+  <div id="resumeModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
+    <div class="glass-card max-w-3xl w-full max-h-[90vh] overflow-y-auto rounded-3xl border border-slate-700 shadow-2xl p-6 sm:p-8 relative text-slate-200">
+      
+      <button onclick="closeResumeModal()" aria-label="Close Resume Modal" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 rounded-xl bg-brand-500/20 text-brand-400 flex items-center justify-center text-xl">
+          <i class="fa-solid fa-file-lines"></i>
+        </div>
+        <div>
+          <h3 class="text-2xl font-display font-bold text-white">Curriculum Vitae Preview</h3>
+          <p class="text-xs font-mono text-brand-400">Charice Van Icelle Maruji Amador</p>
+        </div>
+      </div>
+
+      <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-6 text-sm text-slate-300">
+        
+        <!-- Header Info -->
+        <div class="border-b border-slate-800 pb-4">
+          <h4 class="text-lg font-bold text-white">Charice Van Icelle Maruji Amador</h4>
+          <p class="text-xs text-brand-400 font-mono">Web & Mobile Developer | IT Student</p>
+          <p class="text-xs text-slate-400 mt-1">Misamis University • Northern Mindanao, Philippines</p>
+        </div>
+
+        <!-- Summary -->
+        <div>
+          <h5 class="text-xs font-mono text-slate-400 uppercase tracking-wider mb-2">// Summary</h5>
+          <p class="text-xs leading-relaxed text-slate-300">
+            Dedicated Information Technology student with practical engineering experience building PHP/MySQL database web systems, native Android TV user interfaces using Jetpack Compose, and automated Python data processing workflows.
+          </p>
+        </div>
+
+        <!-- Education -->
+        <div>
+          <h5 class="text-xs font-mono text-slate-400 uppercase tracking-wider mb-2">// Education</h5>
+          <div class="flex justify-between items-start">
+            <div>
+              <p class="font-bold text-white text-xs">Bachelor of Science in Information Technology</p>
+              <p class="text-xs text-slate-400">Misamis University</p>
+            </div>
+            <span class="text-[11px] font-mono text-brand-400">Candidate</span>
+          </div>
+        </div>
+
+        <!-- Certifications -->
+        <div>
+          <h5 class="text-xs font-mono text-slate-400 uppercase tracking-wider mb-2">// Certifications</h5>
+          <div class="flex justify-between items-start">
+            <div>
+              <p class="font-bold text-white text-xs">IT Customer Support Basics</p>
+              <p class="text-xs text-slate-400">Cisco Networking Academy</p>
+            </div>
+            <span class="text-[11px] font-mono text-emerald-400">Certified</span>
+          </div>
+        </div>
+
+        <!-- Major Projects -->
+        <div>
+          <h5 class="text-xs font-mono text-slate-400 uppercase tracking-wider mb-2">// Major Projects</h5>
+          <ul class="list-disc list-inside space-y-1 text-xs text-slate-300">
+            <li><strong>Pickleball Court Booking & Queue System:</strong> Web application with live court scheduling and OpenPlay queues.</li>
+            <li><strong>CineStream Android TV App:</strong> Kotlin & Jetpack Compose media application designed for smart TV devices.</li>
+            <li><strong>MANUKAN NG BAYAN Sales Automation:</strong> Python pandas/gspread tool generating automated SQL statements from Google Sheets.</li>
+            <li><strong>AppSheet Inventory Apps:</strong> Real-time inventory tracking with barcode scanning logic.</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Action Footer -->
+      <div class="mt-6 flex flex-wrap items-center justify-end gap-3">
+        <button onclick="triggerResumeDownload()" class="px-5 py-2.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-slate-900 font-bold text-xs sm:text-sm shadow-md transition-all flex items-center gap-2">
+          <i class="fa-solid fa-download"></i>
+          <span>Save PDF Copy</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION BOX -->
+  <div id="toastNotification" class="fixed bottom-6 right-6 z-50 max-w-sm px-5 py-3.5 rounded-2xl glass-card border border-brand-400/50 text-white shadow-2xl flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300">
+    <div id="toastIcon" class="w-8 h-8 rounded-xl bg-brand-500/20 text-brand-400 flex items-center justify-center text-sm shrink-0">
+      <i class="fa-solid fa-check"></i>
+    </div>
+    <div class="flex-grow">
+      <p id="toastMessage" class="text-xs font-semibold text-slate-100">Action completed successfully.</p>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // DOM Load Initialization
+    document.addEventListener('DOMContentLoaded', () => {
+      initYear();
+      initTheme();
+      initTypingEffect();
+      initScrollSpy();
+    });
+
+    // Set current year
+    function initYear() {
+      const yearEl = document.getElementById('currentYear');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+    }
+
+    // Light / Dark Mode Controller
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const themeIcon = document.getElementById('themeIcon');
+
+    function initTheme() {
+      const savedTheme = localStorage.getItem('ca_theme') || 'dark';
+      if (savedTheme === 'light') {
+        document.documentElement.classList.remove('dark');
+        document.documentElement.classList.add('light');
+        themeIcon.className = 'fa-solid fa-sun text-lg';
+      } else {
+        document.documentElement.classList.remove('light');
+        document.documentElement.classList.add('dark');
+        themeIcon.className = 'fa-solid fa-moon text-lg';
+      }
+    }
+
+    themeToggleBtn.addEventListener('click', () => {
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        document.documentElement.classList.add('light');
+        localStorage.setItem('ca_theme', 'light');
+        themeIcon.className = 'fa-solid fa-sun text-lg';
+        showToast('Switched to Light Mode', 'info');
+      } else {
+        document.documentElement.classList.remove('light');
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('ca_theme', 'dark');
+        themeIcon.className = 'fa-solid fa-moon text-lg';
+        showToast('Switched to Dark Mode', 'info');
+      }
+    });
+
+    // Mobile Navigation Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Terminal Tab Switcher Logic
+    function switchTerminalTab(tabKey) {
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('border-b-2', 'border-brand-400', 'text-brand-400');
+        btn.classList.add('text-slate-400');
+      });
+      document.querySelectorAll('.tab-content').forEach(content => {
+        content.classList.add('hidden');
+      });
+
+      const titleEl = document.getElementById('terminalActiveTabTitle');
+
+      if (tabKey === 'json') {
+        document.getElementById('tabBtnJson').classList.add('border-b-2', 'border-brand-400', 'text-brand-400');
+        document.getElementById('tabContentJson').classList.remove('hidden');
+        titleEl.textContent = 'developer_profile.json';
+      } else if (tabKey === 'py') {
+        document.getElementById('tabBtnPy').classList.add('border-b-2', 'border-brand-400', 'text-brand-400');
+        document.getElementById('tabContentPy').classList.remove('hidden');
+        titleEl.textContent = 'sales_automation.py';
+      } else if (tabKey === 'kt') {
+        document.getElementById('tabBtnKt').classList.add('border-b-2', 'border-brand-400', 'text-brand-400');
+        document.getElementById('tabContentKt').classList.remove('hidden');
+        titleEl.textContent = 'CineStreamTvApp.kt';
+      }
+    }
+
+    function runTerminalScript() {
+      const statusText = document.getElementById('terminalStatusText');
+      statusText.textContent = 'Running Snippet...';
+      statusText.className = 'text-amber-400 font-mono';
+
+      setTimeout(() => {
+        statusText.textContent = 'Execution Success (0 errors)';
+        statusText.className = 'text-emerald-400 font-mono';
+        showToast('Terminal Script Executed Successfully!', 'success');
+      }, 700);
+    }
+
+    // Hero Subtitle Dynamic Typing Animation
+    const roles = [
+      "Information Technology Student",
+      "Full-Stack PHP & MySQL Web Developer",
+      "Android TV & Jetpack Compose Engineer",
+      "Python Data ETL & Automation Developer"
+    ];
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function initTypingEffect() {
+      const target = document.getElementById('heroTypingRole');
+      if (!target) return;
+
+      const currentRole = roles[roleIndex];
+      if (isDeleting) {
+        target.textContent = currentRole.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        target.textContent = currentRole.substring(0, charIndex + 1);
+        charIndex++;
+      }
+
+      let speed = isDeleting ? 40 : 80;
+
+      if (!isDeleting && charIndex === currentRole.length) {
+        speed = 1800; // Pause at end of word
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        speed = 400;
+      }
+
+      setTimeout(initTypingEffect, speed);
+    }
+
+    // Skill Filter Controller
+    function filterSkills(category) {
+      document.querySelectorAll('.skill-tab-btn').forEach(btn => {
+        btn.classList.remove('bg-brand-500', 'text-slate-900', 'font-semibold', 'shadow-md');
+        btn.classList.add('bg-slate-800/80', 'text-slate-300');
+      });
+
+      const activeBtn = document.getElementById(`skillTab-${category}`);
+      if (activeBtn) {
+        activeBtn.classList.remove('bg-slate-800/80', 'text-slate-300');
+        activeBtn.classList.add('bg-brand-500', 'text-slate-900', 'font-semibold', 'shadow-md');
+      }
+
+      const cards = document.querySelectorAll('.skill-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.classList.contains(category)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Project Filter Controller
+    function filterProjects(category) {
+      document.querySelectorAll('.proj-tab-btn').forEach(btn => {
+        btn.classList.remove('bg-brand-500', 'text-slate-900', 'font-semibold', 'shadow-md');
+        btn.classList.add('bg-slate-800/80', 'text-slate-300');
+      });
+
+      const activeBtn = document.getElementById(`projTab-${category}`);
+      if (activeBtn) {
+        activeBtn.classList.remove('bg-slate-800/80', 'text-slate-300');
+        activeBtn.classList.add('bg-brand-500', 'text-slate-900', 'font-semibold', 'shadow-md');
+      }
+
+      const projCards = document.querySelectorAll('.project-card');
+      projCards.forEach(card => {
+        if (category === 'all' || card.classList.contains(category)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Project Specification Modal Logic
+    const projectData = {
+      pickleball: {
+        title: "Pickleball Court Booking & Queue System",
+        category: "Full-Stack Web Application",
+        stack: ["PHP", "MySQL", "JavaScript", "Tailwind CSS"],
+        summary: "A specialized court management platform created to streamline court reservations and manage live player queues during OpenPlay sessions.",
+        features: [
+          "Real-time court slot availability viewer and reservation locking.",
+          "Live OpenPlay player queue management algorithm for balanced court rotations.",
+          "Admin dashboard for managing schedules, hourly rates, and user records.",
+          "Responsive mobile UI tailored for court-side player interaction."
+        ],
+        architecture: "Modular PHP architecture with MySQL transactional query handling to prevent duplicate bookings."
+      },
+      cinestream: {
+        title: "CineStream Android TV Application",
+        category: "Mobile & Smart TV Application",
+        stack: ["Android Studio", "Jetpack Compose TV", "Kotlin", "ExoPlayer"],
+        summary: "Custom video streaming application built natively for Android TV devices, featuring optimized television navigation and media streaming.",
+        features: [
+          "D-Pad television remote focus management with visible selection glow effects.",
+          "Horizontal media catalog rows built with Compose TV LazyRow.",
+          "Video player integration featuring continuous playback and title overlays.",
+          "Custom catalog search interface tuned for TV remote typing."
+        ],
+        architecture: "MVVM pattern built with Kotlin Coroutines for reactive UI state streams."
+      },
+      manukan: {
+        title: "MANUKAN NG BAYAN Sales Automation Script",
+        category: "Data Automation & Python ETL",
+        stack: ["Python", "pandas", "gspread", "MySQL"],
+        summary: "An automated data extraction and transformation script designed for store sales record processing from cloud spreadsheets into central databases.",
+        features: [
+          "Automated Google Sheets authentication and data retrieval via gspread API.",
+          "Data cleaning and formatting powered by Python pandas dataframes.",
+          "Dynamic SQL batch statement generation for seamless MySQL ingestion.",
+          "Logging mechanism to track successfully processed sales batches and errors."
+        ],
+        architecture: "Python standalone ETL script capable of scheduled cron job execution."
+      },
+      appsheet: {
+        title: "AppSheet Enterprise Inventory Systems",
+        category: "No-Code Platform & Business Automation",
+        stack: ["AppSheet", "Google Cloud", "Barcode Scanner Logic"],
+        summary: "Tailored multi-role mobile enterprise application built to simplify stock auditing, receiving, and dispatching.",
+        features: [
+          "In-app barcode camera scanner for instant stock lookup and update.",
+          "Role-based access permissions for warehouse staff and administrators.",
+          "Automatic low-stock email notifications triggered via custom expressions.",
+          "Offline mode support with automatic background cloud sync upon connection."
+        ],
+        architecture: "Expression-driven logic on AppSheet backed by relational Google Sheets schemas."
+      }
+    };
+
+    function openProjectModal(key) {
+      const data = projectData[key];
+      if (!data) return;
+
+      const modal = document.getElementById('projectModal');
+      const content = document.getElementById('projectModalContent');
+
+      content.innerHTML = `
+        <div class="flex items-center justify-between mb-4">
+          <span class="px-3 py-1 rounded-full bg-brand-500/10 text-brand-400 font-mono text-xs font-semibold">
+            ${data.category}
+          </span>
+        </div>
+        <h3 class="text-2xl font-display font-bold text-white mb-2">${data.title}</h3>
+        <p class="text-sm text-slate-300 leading-relaxed mb-6">${data.summary}</p>
+
+        <div class="mb-6">
+          <h4 class="text-xs font-mono text-slate-400 uppercase tracking-wider mb-2">// Key Features</h4>
+          <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
+            ${data.features.map(f => `<li class="flex items-start gap-2"><i class="fa-solid fa-check text-brand-400 mt-1"></i><span>${f}</span></li>`).join('')}
+          </ul>
+        </div>
+
+        <div class="mb-6 p-4 rounded-xl bg-slate-900 border border-slate-800">
+          <h4 class="text-xs font-mono text-brand-400 uppercase tracking-wider mb-1">Architecture Note</h4>
+          <p class="text-xs text-slate-300">${data.architecture}</p>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-mono text-slate-400 uppercase tracking-wider mb-2">// Applied Tech Stack</h4>
+          <div class="flex flex-wrap gap-2">
+            ${data.stack.map(s => `<span class="px-2.5 py-1 rounded bg-slate-800 font-mono text-xs text-brand-300">${s}</span>`).join('')}
+          </div>
+        </div>
+      `;
+
+      modal.classList.remove('hidden');
+      setTimeout(() => modal.classList.remove('opacity-0'), 10);
+    }
+
+    function closeProjectModal() {
+      const modal = document.getElementById('projectModal');
+      modal.classList.add('opacity-0');
+      setTimeout(() => modal.classList.add('hidden'), 300);
+    }
+
+    // Resume Modal Logic
+    function openResumeModal() {
+      const modal = document.getElementById('resumeModal');
+      modal.classList.remove('hidden');
+      setTimeout(() => modal.classList.remove('opacity-0'), 10);
+    }
+
+    function closeResumeModal() {
+      const modal = document.getElementById('resumeModal');
+      modal.classList.add('opacity-0');
+      setTimeout(() => modal.classList.add('hidden'), 300);
+    }
+
+    function triggerResumeDownload() {
+      showToast('Generating CV Download...', 'info');
+      setTimeout(() => {
+        showToast('Resume ready for download!', 'success');
+      }, 1000);
+    }
+
+    function showCertToast() {
+      showToast('Cisco IT Customer Support Credential Verified!', 'success');
+    }
+
+    // Contact Form Submission Handler
+    function handleContactSubmit(event) {
+      event.preventDefault();
+      
+      const submitBtn = document.getElementById('contactSubmitBtn');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> Sending...`;
+
+      setTimeout(() => {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = `<i class="fa-solid fa-paper-plane"></i> Send Message`;
+        document.getElementById('portfolioContactForm').reset();
+        showToast('Thank you! Your message has been sent successfully.', 'success');
+      }, 1200);
+    }
+
+    // Copy to Clipboard Utility
+    function copyToClipboard(text, successMsg) {
+      const tempInput = document.createElement('input');
+      tempInput.value = text;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempInput);
+
+      showToast(successMsg || 'Copied to clipboard!', 'success');
+    }
+
+    // Toast Alert Notification System
+    function showToast(message, type = 'success') {
+      const toast = document.getElementById('toastNotification');
+      const toastMsg = document.getElementById('toastMessage');
+      const toastIcon = document.getElementById('toastIcon');
+
+      toastMsg.textContent = message;
+
+      if (type === 'info') {
+        toastIcon.className = 'w-8 h-8 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center text-sm shrink-0';
+        toastIcon.innerHTML = `<i class="fa-solid fa-circle-info"></i>`;
+      } else {
+        toastIcon.className = 'w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-sm shrink-0';
+        toastIcon.innerHTML = `<i class="fa-solid fa-check"></i>`;
+      }
+
+      toast.classList.remove('translate-y-20', 'opacity-0');
+
+      setTimeout(() => {
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 3500);
+    }
+
+    // Scroll Back to Top
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Scroll-Spy Header Active Highlight
+    function initScrollSpy() {
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-link');
+
+      window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop - 120;
+          const sectionHeight = section.offsetHeight;
+          if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+            current = section.getAttribute('id');
+          }
+        });
+
+        navLinks.forEach(link => {
+          link.classList.remove('text-brand-400', 'font-semibold');
+          if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('text-brand-400', 'font-semibold');
+          }
+        });
+      });
+    }
+  </script>
+</body>
+</html>
